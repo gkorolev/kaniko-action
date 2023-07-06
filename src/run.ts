@@ -78,8 +78,8 @@ export const generateArgs = (inputs: Inputs, outputsDir: string): string[] => {
     '--context',
     'dir:///kaniko/action/context/',
     '--digest-file',
-    '/kaniko/action/outputs/digest',
-    )
+    '/kaniko/action/outputs/digest'
+  )
 
   if (inputs.file) {
     // docker build command resolves the Dockerfile from the context root
