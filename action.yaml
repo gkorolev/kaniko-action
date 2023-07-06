@@ -28,7 +28,9 @@ inputs:
   kaniko-args:
     description: Extra args to Kaniko executor
     required: false
-
+  docker-vars:
+    description: Variables to pass to docker container
+    required: false
   # compatible with https://github.com/docker/build-push-action
   build-args:
     description: List of build args

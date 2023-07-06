@@ -12,6 +12,7 @@ const main = async (): Promise<void> => {
     verbosity: core.getInput('verbosity'),
     kanikoArgs: core.getMultilineInput('kaniko-args'),
     buildArgs: core.getMultilineInput('build-args'),
+    dockerVars: core.getMultilineInput('docker-vars')
     context: core.getInput('context'),
     file: core.getInput('file'),
     labels: core.getMultilineInput('labels'),

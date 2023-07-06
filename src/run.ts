@@ -14,6 +14,7 @@ type Inputs = {
   verbosity: string
   kanikoArgs: string[]
   buildArgs: string[]
+  dockerVars: string[]
   context: string
   file: string
   labels: string[]
@@ -65,13 +66,20 @@ export const generateArgs = (inputs: Inputs, outputsDir: string): string[] => {
     // https://github.com/GoogleContainerTools/kaniko/issues/1542#issuecomment-1066028047
     '-e',
     'container=docker',
+  ]
+
+  for (const dockerVar of inputs.dockerVars) {
+    args.push('-e', dockerVar)
+  }
+
+  args.push(
     inputs.executor,
     // kaniko args
     '--context',
     'dir:///kaniko/action/context/',
     '--digest-file',
     '/kaniko/action/outputs/digest',
-  ]
+    )
 
   if (inputs.file) {
     // docker build command resolves the Dockerfile from the context root
