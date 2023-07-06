@@ -78,6 +78,8 @@ test('full args', () => {
     `${os.homedir()}/.docker/:/kaniko/.docker/:ro`,
     '-e',
     'container=docker',
+    '-e',
+    'GOOGLE_APPLICATION_CREDENTIALS=/kaniko/action/context/config.json',
     'gcr.io/kaniko-project/executor:latest',
     // kaniko args
     '--context',
